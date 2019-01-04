@@ -1,0 +1,69 @@
+@import "./components/**";
+
+#main {
+  width: 600px;
+  p {
+    margin: 0 0 1em;
+    em {
+      color: #f00;
+    }
+  }
+  small {
+    font-size: small;
+  }
+}
+
+#header {
+  font-size: 14px;
+  $value: 100px;
+  @debug $value; 
+}
+
+//mixinで複数breakpoint
+$breakpoints: (
+  xs: "only screen and (max-width: 320px)",
+  s:  "only screen and (max-width: 575px)",
+  m:  "only screen and (max-width: 767px)",
+  l:  "only screen and (max-width: 991px)",
+  xl: "only screen and (max-width: 1199px)"
+);
+
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }
+  @else {
+    @error "$breakpointsに#{$breakpoint}というキーはありません";
+  }
+}
+
+body {
+  background-color: white;
+  @include media(l) {
+    background-color: blue;
+  }
+  @include media(m) {
+    background-color: green;
+  }
+  @include media(xs) {
+    background-color: red;
+  }
+}
+
+@mixin bg_size($w, $h: auto) {
+  @if $h == auto {
+    background-size: round($w / 2) + px $h;
+  }
+  @else {
+    background-size: round($w / 2) + px round($h / 2) + px;
+  }
+}
+
+.item {
+  background: #fff url(./img/bg.png) no-repeat center;
+  @media screen and (-webkit-min-device-pixel-ration: 1.5), (min-resolution: 2dppx) {
+    @include bg_size(699, 400);
+  }
+}

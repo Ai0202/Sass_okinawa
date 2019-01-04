@@ -1,0 +1,158 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none;
+}
+
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.test {
+  font-size: 20px;
+}
+
+.test p {
+  color: #f0f;
+  margin: 30px;
+  padding: 20px;
+}
+
+.test p span {
+  margin: 10px;
+}
+
+.test p > a {
+  color: #fff;
+}
+
+.btn, .btn-lg, .btn-xl {
+  background-color: #f0f;
+  padding: 20px 40px;
+  border: 1px solid #fd0;
+  text-align: center;
+  color: #fff;
+}
+
+.welcome {
+  height: 100vh;
+}
+
+@media screen and (max-width: 640px) {
+  .welcome {
+    height: 200px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#side {
+  width: 240px;
+}
+
+body.top #side {
+  width: 300px;
+}
+
+#side ul.bnr {
+  margin-bottom: 10px;
+}
+
+.hoge {
+  border-top: 5px solid #ddd;
+  background-color: #ddd;
+}
+
+.color-bg, .btn-lg, .btn-xl {
+  background-color: #1100ff;
+}
+
+.btn-lg, .btn-xl {
+  padding: 30px 50px;
+}
+
+.btn-xl {
+  padding: 40px 50px;
+}
+
+.card {
+  padding: 30px;
+  background: #999;
+  color: #fff;
+}
+
+.profile {
+  border-radius: 50%;
+}
+
+.main-img {
+  border-radius: 10px;
+}
+
+.sub-img {
+  border-radius: 5px;
+}
+
+.item .image {
+  float: left;
+}
+
+@media only screen and (max-width: 768px) {
+  .item .image {
+    float: none;
+  }
+}
+
+.item .text {
+  overflow: hidden;
+  margin-left: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  .item .text {
+    margin-left: 0;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */

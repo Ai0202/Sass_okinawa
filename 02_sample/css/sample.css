@@ -1,0 +1,15 @@
+#main {
+  width: 600px;
+}
+
+#main p {
+  margin: 0 0 1em;
+}
+
+#main p em {
+  color: #f00;
+}
+
+#main small {
+  font-size: small;
+}

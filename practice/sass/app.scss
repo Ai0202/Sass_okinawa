@@ -1,0 +1,160 @@
+@import "./component/_button";
+
+body {
+    background-color: #r00;
+}
+
+//入れ子(ネスト)
+#main {
+    font-size: 12px;
+    .btn {
+        font-size: 15px;
+    }
+    > .hoge {
+        color: #fff;
+    }
+}
+
+
+//変数
+$white: #fff;
+$baseColor: #r00;
+#sidebar {
+    color: $white;
+    .hoge {
+        background-color: $baseColor;
+    }
+}
+
+//演算
+#header {
+    $smFont: 10px;
+    font-size: $smFont;
+    line-height: $smFont * 2;
+}
+
+//継承
+.link {
+    font-size: 10px;
+    &:hover {
+        font-size: 10px * 5;
+    }
+    &:first-child {
+        margin-right: 20px;
+    }
+    //よく使う -がプロパティに入ってる時に使える
+    background: {
+        color: #f0f;
+        size: cover;
+    }
+}
+
+//継承
+#footer {
+    @extend .link
+}
+
+%box {
+    padding: 10px 10px;
+    background-color: #r00;
+}
+
+.smBox {
+    @extend %box;
+    font-size: 10px;
+}
+
+.lgBox {
+    @extend %box;
+    font-size: 50px;
+}
+
+.xlBox {
+    @extend .lgBox;
+}
+
+
+//mixin
+@mixin box {
+    padding: 30px;
+    background: #999;
+    color: #fff;
+}
+
+.card {
+    @include box;
+}
+
+@mixin circle($value) {
+    border-radius: $value;
+}
+
+.profile {
+    @include circle(50%);
+}
+
+.bg-img {
+    @include circle(5px);
+}
+
+@mixin hoge($v, $i, $b) {
+    border-radius: $v;
+    font-size: $i;
+    color: $b;
+}
+
+// 50%, 20px, #fff; fuga
+.fuga {
+    @include hoge(50%, 20px, #fff);
+}
+
+@mixin square($value: #ddd) {
+    background-color: $value;
+}
+
+.moge {
+    @include square();
+}
+
+.ika {
+    @include square(#r00);
+}
+
+//content
+// .item {
+//     .image {
+//         float: left;
+//         @media only screen and (max-width: 768px) {
+//             float: none;
+//         }
+//     }
+//     .text {
+//         overflow: scroll;
+//         margin-left: 15px;
+//         @media only screen and (max-width: 768px) {
+//             margin-left: 0;
+//         }
+//     }
+// }
+
+@mixin media($width: 768px) {
+    @media only screen and (max-width: $width) {
+        @content;
+    }
+}
+
+.item {
+    .image {
+        float: left;
+        @include media {
+            float: none;
+        }
+    }
+    .text {
+        overflow: scroll;
+        margin-left: 15px;
+        @include media {
+            margin-left: 0;
+        }
+    }
+}

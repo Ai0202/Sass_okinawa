@@ -1,0 +1,82 @@
+.button {
+  font-size: 30px; }
+
+body {
+  background-color: #r00; }
+
+#main {
+  font-size: 12px; }
+
+#main .btn {
+  font-size: 15px; }
+
+#main > .hoge {
+  color: #fff; }
+
+#sidebar {
+  color: #fff; }
+
+#sidebar .hoge {
+  background-color: #r00; }
+
+#header {
+  font-size: 10px;
+  line-height: 20px; }
+
+.link, #footer {
+  font-size: 10px;
+  background-color: #f0f;
+  background-size: cover; }
+
+.link:hover, #footer:hover {
+  font-size: 50px; }
+
+.link:first-child, #footer:first-child {
+  margin-right: 20px; }
+
+.smBox, .lgBox, .xlBox {
+  padding: 10px 10px;
+  background-color: #r00; }
+
+.smBox {
+  font-size: 10px; }
+
+.lgBox, .xlBox {
+  font-size: 50px; }
+
+.card {
+  padding: 30px;
+  background: #999;
+  color: #fff; }
+
+.profile {
+  border-radius: 50%; }
+
+.bg-img {
+  border-radius: 5px; }
+
+.fuga {
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff; }
+
+.moge {
+  background-color: #ddd; }
+
+.ika {
+  background-color: #r00; }
+
+.item .image {
+  float: left; }
+
+@media only screen and (max-width: 768px) {
+  .item .image {
+    float: none; } }
+
+.item .text {
+  overflow: scroll;
+  margin-left: 15px; }
+
+@media only screen and (max-width: 768px) {
+  .item .text {
+    margin-left: 0; } }

@@ -1,0 +1,155 @@
+//変数を指定
+$pink: #f0f;
+
+.test {
+  font-size: 20px;
+  p {
+    color: #f0f;
+    margin: 30px;
+    padding: 20px;
+    span {
+      margin: 20px - 10px; //演算
+    }
+    > a {
+      color: #fff;
+    }
+  }
+}
+
+.btn {
+  background-color: $pink; //変数を使用
+  padding: 20px 40px;
+  border: 1px solid #fd0;
+  text-align: center;
+  color: #fff;
+}
+
+//mediaのネスト
+.welcome {
+  height: 100vh;
+  @media screen and (max-width: 640px) {
+    height: 200px;
+  }
+}
+
+//& 親セレクタの参照
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// #side {
+//   width: 240px;
+//   ul.bnr {
+//     margin-bottom: 10px;
+//   }
+// }
+// body.top #side {
+//   width: 300px;
+// }
+
+#side {
+  width: 240px;
+  body.top & {
+    width: 300px;
+  }
+  ul.bnr {
+    margin-bottom: 10px;
+  }
+}
+
+//プロパティのネスト -があるプロパティは全てネスト可能
+.hoge {
+  border: {
+    top: 5px solid #ddd;
+  }
+  background: {
+    color: #ddd;
+  }
+}
+
+//extend
+.color-bg {
+  $color: rgb(17, 0, 255);
+  background-color: $color;
+}
+
+.btn-lg {
+  @extend .btn;
+  @extend .color-bg;
+  padding: 30px 50px;
+}
+
+.btn-xl {
+  @extend .btn-lg;
+  padding: 40px 50px;
+}
+
+//mixin 定義して呼び出して使う 引数も指定可能 デフォルト値も指定可能
+//スコープもある
+@mixin box {
+  padding: 30px;
+  background: #999;
+  color: #fff;
+}
+
+.card {
+  @include box;
+}
+
+@mixin kadomaru($value: 5px) {
+  border-radius: $value;
+}
+
+.profile {
+  @include kadomaru(50%);
+}
+
+.main-img {
+  @include kadomaru(10px);
+}
+
+.sub-img {
+  @include kadomaru();
+}
+
+//content
+// .item {
+//   .image {
+//     float: left;
+//     @media only screen and (max-width: 768px) {
+//       float: none;
+//     }
+//   }
+//   .text {
+//     overflow: hidden;
+//     margin-left: 15px;
+//     @media only screen and (max-width: 768px) {
+//       margin-left: 0;
+//     }
+//   }
+// }
+
+@mixin media($width-media: 768px) {
+  @media only screen and (max-width: $width-media) {
+    @content;
+  }
+}
+
+.item {
+  .image {
+    float: left;
+    @include media {
+      float: none;
+    }
+  }
+  .text {
+    overflow: hidden;
+    margin-left: 15px;
+    @include media {
+      margin-left: 0;
+    }
+  }
+}
